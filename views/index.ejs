@@ -10,12 +10,21 @@
 
   <button>Fetch translations</button>
 
-  <form action="/add" method="POST">
-    <input type="text" name="newItem" />
-    <button type="submit">Add Item</button>
-  </form>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <script>
+  	async function fetchTranslations() {
+  		const response = await fetch('http://localhost:3000/api/translations');
+  		const json = await response.json();
+  		console.log(json.data);
+  	} 
+
+  	$('button').on('click', fetchTranslations);
+  	
+  	$(function() {
+  		$('button').click();
+  	});
+  </script>
 
 </body>
 </html>
