@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Translation sample</title>
+  <style>
+    body { margin: 0; }
+    html { font-family: -apple-system, BlinkMacSystemFont, sans-serif;}
+    
+    .line {
+      background: #eee;
+    }
+    .word {
+      display: inline-block;
+      background: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <button>Fetch translations</button>
+
+  <div id="app">
+    <word
+      v-for="word in renderList"
+      :key="`${word.word}-${word.language}`"
+      :language="word.language"
+      :word="word.word"
+    >
+      {{ word.translation }}
+    </word>
+  </div>
+
+
+<template id="tpl-word">
+  <div class="line">
+    <div :id="`${word}-${language}`" class="word"><slot /></div>
+  </div>
+</template>
+
+
+  <script src="/js/vue.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <script>
+  	// KEEP: Code for fetching translation data. Data written to
+  	// data/translations.js so we don't need to run again.
+  	// async function fetchTranslations() {
+  	// 	const response = await fetch('http://localhost:3000/api/translations');
+  	// 	const json = await response.json();
+  	// 	console.log(json.data);
+  	// } 
+
+  	// $('button').on('click', fetchTranslations);
+   //  $('button').click();
+
+    // -------------------------------------------------------------------------
+
+
+Vue.component('word', {
+  template: '#tpl-word',
+  
+  props: {
+    language: String,
+    word: String,
+  },
+
+  computed: {
+    id() {
+      return 'jiji'  ;
+    },
+  },
+});
+
+const ENGLISH = 'en';
+
+new Vue({
+  el: '#app',
+  data() {
+    return { 
+      languages: [],
+      words: [],
+      translations: {},
+      renderList: [],
+     
+    };
+  },
+  async mounted() {
+    const data = await this.fetchData();
+    
+    // Extract langs and words
+    this.languages = Object.keys(data);
+    this.words = data[ENGLISH];
+    
+    // Generate translations object
+     /*
+      {
+        about: {
+          de: {
+            translation: 'Über',
+            chars: 4
+            pixelWidth: 36,
+          }
+        }
+      }
+      */
+    this.words.forEach((word, index) => {
+      let wordObj = {};
+
+      this.languages.forEach(lang => {
+        let translation = data[lang][index];
+        wordObj[lang] = {
+          translation,
+          chars: translation.length,
+        }
+      })
+
+      this.translations[word] = wordObj;
+    })
+
+    // Populate renderList
+    Object.keys(this.translations).forEach(word => {
+      let wordTranslations = this.translations[word];
+      this.languages.forEach(language => {
+        this.renderList.push({
+          word,
+          language,
+          translation: wordTranslations[language].translation,
+        });
+      });
+    });
+
+    await this.$nextTick()
+
+    // Get width and update this.translations
+    this.words.forEach(word => {
+      this.languages.forEach(lang => {
+        let el = document.getElementById(`${word}-${lang}`);
+        this.translations[word][lang].pixelWidth = el.clientWidth;
+      })
+    })
+  
+    console.log(this.translations);
+  },
+
+  methods: {
+    async fetchData() {
+      const res = await fetch('data/translations.json')
+      const { data } = await res.json();
+      return data;
+    },
+  }
+});  	
+  </script>
+
+</body>
+</html>

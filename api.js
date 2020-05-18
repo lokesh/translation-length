@@ -1,8 +1,8 @@
 const express = require('express');
 const fetchTranslationMultiLang = require('./api/fetchTranslationMultiLang');
 
-const languages = require('./data/languages.js');
-const words = require('./data/words.js');
+const languages = require('./api/languages.js');
+const words = require('./api/words.js');
 
 const router = express.Router();
 

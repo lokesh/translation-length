@@ -2,14 +2,8 @@ const path = require('path');
 const ejs = require('ejs');
 const express = require('express');
 
-// --------------
-// Init and configure app
-// --------------
 
 const app = express();
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
 
 // --------------
 // Use middleware
