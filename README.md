@@ -7,13 +7,23 @@ http://localhost:3000/
 
 ## API
 
-
 ```
 **api/translation/{q}**
 
 @param String|String[] q String or array of strings to translate
 @returns String|String[] translation
 ```
+
+
+## Adding new words and updating export
+
+- Add word to api/words.js
+- Start app with: `nodemon app.js`
+- Visit localhost:3000
+- Click Fetch button
+- Reload index.html in browser
+
+New data should be stored in `public/data/translations-measured.json`
 
 
 ## Notes

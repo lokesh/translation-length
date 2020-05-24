@@ -3,6 +3,7 @@ module.exports = [
   "accessibility",
   "account",
   "back to top",
+  "Cancel",
   "careers",
   "chat",
   "contact",
@@ -14,6 +15,7 @@ module.exports = [
   "guidelines",
   "help",
   "home",
+  "In a horizontal grid",
   "investors",
   "jobs",
   "learn more",
@@ -27,6 +29,7 @@ module.exports = [
   "privacy and security",
   "products",
   "resources",
+  "Save document",
   "search",
   "shop now",
   "sign in",
@@ -38,4 +41,5 @@ module.exports = [
   "terms of service",
   "timeline",
   "toggle navigation",
+  "Two cards"
 ];

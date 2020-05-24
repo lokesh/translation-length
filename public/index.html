@@ -17,8 +17,15 @@
 </head>
 <body>
 
-  <button>Fetch translations</button>
-
+  <button id="fetch">☁️ Fetch</button>
+  <p>Fetch from Google Translate API using words.js list. <br />
+  Save ouput to public/data/translations.json</p>
+  
+<!--   <hr />
+  <button id="save">⬇ Save w/metrics </button>
+  <p>Take translations.json data. Adds char count and width to objects.<br />
+    Save to public/data/translations-measured.json</p>
+ -->
   <div id="app">
     <word
       v-for="word in renderList"
@@ -42,16 +49,38 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
   <script>
-  	// KEEP: Code for fetching translation data. Data written to
-  	// data/translations.js so we don't need to run again.
-  	// async function fetchTranslations() {
-  	// 	const response = await fetch('http://localhost:3000/api/translations');
-  	// 	const json = await response.json();
-  	// 	console.log(json.data);
-  	// } 
+    /*
+    IMPORTANT: Before hitting API, you must export a  GOOGLE_APPLICATION_CREDENTIALS path variable that points the full path of your private keys json file
+    */
 
-  	// $('button').on('click', fetchTranslations);
-   //  $('button').click();
+    let data;
+
+  	async function fetchTranslations() {
+  		let response;
+      try {
+        response = await fetch('http://localhost:3000/api/translations');
+      } catch(err) {
+        console.log(err);
+      }
+  		const json = await response.json();
+  		data = json.data;
+  	} 
+
+    async function saveMeasuredTranslations(data) {
+      const response = await fetch('http://localhost:3000/api/translations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(data)
+      });
+
+      console.log(response);
+    } 
+
+
+  	$('#fetch').on('click', fetchTranslations);
+    // $('#save').on('click', saveMeasuredTranslations);
 
     // -------------------------------------------------------------------------
 
@@ -138,7 +167,10 @@ new Vue({
         this.translations[word][lang].pixelWidth = el.clientWidth;
       })
     })
-  
+    
+    // Save to file
+    saveMeasuredTranslations(this.translations);
+    
     console.log(this.translations);
   },
 
