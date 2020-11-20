@@ -1,6 +1,10 @@
 {
   "data": {
     "en": [
+      "Alert component",
+      "This modal component has a fixed width of 280px.",
+      "This time we stack the buttons to give the labels plenty of room.",
+      "Good luck",
       "about",
       "accessibility",
       "account",
@@ -46,6 +50,10 @@
       "Two cards"
     ],
     "zh-CN": [
+      "警报组件",
+      "此模式组件的固定宽度为280px。",
+      "这次，我们堆叠按钮以给标签留出足够的空间。",
+      "祝好运",
       "关于",
       "可及性",
       "帐户",
@@ -91,6 +99,10 @@
       "两张卡"
     ],
     "es": [
+      "Componente de alerta",
+      "Este componente modal tiene un ancho fijo de 280 px.",
+      "Esta vez apilamos los botones para darles mucho espacio a las etiquetas.",
+      "Buena suerte",
       "acerca de",
       "accesibilidad",
       "cuenta",
@@ -136,6 +148,10 @@
       "Dos cartas"
     ],
     "ar": [
+      "مكون التنبيه",
+      "يبلغ عرض هذا المكون المشروط 280 بكسل.",
+      "هذه المرة نقوم بتكديس الأزرار لإعطاء الملصقات مساحة كبيرة.",
+      "حظا طيبا وفقك الله",
       "حول",
       "إمكانية الوصول",
       "الحساب",
@@ -181,6 +197,10 @@
       "بطاقتان"
     ],
     "id": [
+      "Komponen peringatan",
+      "Komponen modal ini memiliki lebar tetap 280px.",
+      "Kali ini kami menumpuk tombol untuk memberi label banyak ruang.",
+      "Semoga berhasil",
       "tentang",
       "aksesibilitas",
       "Akun",
@@ -226,6 +246,10 @@
       "Dua kartu"
     ],
     "pt": [
+      "Componente de alerta",
+      "Este componente modal tem uma largura fixa de 280px.",
+      "Desta vez, empilhamos os botões para dar bastante espaço às etiquetas.",
+      "Boa sorte",
       "sobre",
       "acessibilidade",
       "conta",
@@ -271,6 +295,10 @@
       "Dois cartões"
     ],
     "fr": [
+      "Composant d'alerte",
+      "Ce composant modal a une largeur fixe de 280px.",
+      "Cette fois, nous empilons les boutons pour donner beaucoup d'espace aux étiquettes.",
+      "Bonne chance",
       "à propos",
       "accessibilité",
       "Compte",
@@ -316,6 +344,10 @@
       "Deux cartes"
     ],
     "ja": [
+      "警告コンポーネント",
+      "このモーダルコンポーネントの幅は280pxに固定されています。",
+      "今回はボタンを重ねて、ラベルに十分なスペースを与えます。",
+      "幸運を",
       "約",
       "アクセシビリティ",
       "アカウント",
@@ -361,6 +393,10 @@
       "2枚のカード"
     ],
     "ru": [
+      "Компонент оповещения",
+      "Этот модальный компонент имеет фиксированную ширину 280 пикселей.",
+      "На этот раз мы складываем кнопки, чтобы дать ярлыкам достаточно места.",
+      "Удачи",
       "около",
       "доступность",
       "Счет",
@@ -406,6 +442,10 @@
       "Две карты"
     ],
     "de": [
+      "Alarmkomponente",
+      "Diese modale Komponente hat eine feste Breite von 280px.",
+      "Diesmal stapeln wir die Knöpfe, um den Etiketten viel Platz zu geben.",
+      "Viel Glück",
       "Über",
       "Barrierefreiheit",
       "Konto",

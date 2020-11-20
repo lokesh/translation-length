@@ -1,4 +1,8 @@
 module.exports = [
+  "Alert component",
+  "This modal component has a fixed width of 280px.",
+  "This time we stack the buttons to give the labels plenty of room.",
+  "Good luck",
   "about",
   "accessibility",
   "account",
